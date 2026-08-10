@@ -5,6 +5,8 @@ _["Niagara Falls" by Brian Trepanier](https://sketchfab.com/3d-models/niagara-fa
 
 [Omnific](https://github.com/Jean-LouisH/Omnific) is a game engine I'm developing for fun, study and technical demonstrations. It: doubles as an interactive software framework; is designed to be customizable, general purpose, data-driven, and lightweight; and builds to Windows, Linux and Web platforms.
 
+Web Demo: https://jean-louish.github.io/Omnific/.
+
 # Table of Contents
 
 * [Notable Features](#notable-features)
@@ -47,9 +49,9 @@ _["Niagara Falls" by Brian Trepanier](https://sketchfab.com/3d-models/niagara-fa
 
 # Demos
 
-Click the name of each project to download their Windows x86-64 builds.
+Everything listed here is in the Web Demo: https://jean-louish.github.io/Omnific/.
 
-- [Pong](https://github.com/Jean-LouisH/Omnific/releases/download/0.1/pong.zip)
+- Pong
 
 ![omnific_pong](docs/images/omnific_pong_demo.gif)
 

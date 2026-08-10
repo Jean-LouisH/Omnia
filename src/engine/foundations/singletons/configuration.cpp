@@ -152,10 +152,6 @@ void Omnific::Configuration::load_from_file(std::string boot_filepath)
 					{
 						configuration->enabled_systems.rendering_system = it1->second.as<bool>();
 					}
-					else if (it1->first.as<std::string>() == "imperium_scripting_system")
-					{
-						configuration->enabled_systems.imperium_scripting_system = it1->second.as<bool>();
-					}
 				}
 			}
 		}
@@ -196,7 +192,6 @@ Omnific::Configuration* Omnific::Configuration::get_instance()
 		configuration->enabled_systems.physics_system = true;
 		configuration->enabled_systems.python_scripting_system = true;
 		configuration->enabled_systems.rendering_system = true;
-		configuration->enabled_systems.imperium_scripting_system = true;
 	}
 	return instance;
 }

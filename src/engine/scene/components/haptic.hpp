@@ -22,14 +22,35 @@
 
 #pragma once
 
-#include <string>
-#include <set>
+#include <foundations/aliases.hpp>
+#include <foundations/constants.hpp>
+#include "scene/components/component.hpp"
 
 namespace Omnific
 {
-	class ImperiumScriptInstance
+	class OMNIFIC_ENGINE_API Haptic : public Component
 	{
+		friend class HapticSystem;
 	public:
+		Haptic()
+		{
+			this->type = TYPE_STRING;
+		};
+		static constexpr const char* TYPE_STRING = "Haptic";
+
+		virtual Registerable* instance() override
+		{
+			Haptic* clone = new Haptic(*this);
+			clone->id = UIDGenerator::get_new_uid();
+			return clone;
+		}
+
+		void rumble(uint16_t duration, float strength, PlayerID player_id = 0);
+
+		virtual void deserialize(YAML::Node yaml_node);
 	private:
+		PlayerID player_id = 0;
+		uint16_t duration = 0;
+		float strength = 0.0f;
 	};
 }

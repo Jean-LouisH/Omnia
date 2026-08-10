@@ -47,6 +47,7 @@
 #include "scene/components/context_menu.hpp"
 #include "scene/components/drop_down_button_list.hpp"
 #include "scene/components/gui_element.hpp"
+#include "scene/components/haptic.hpp"
 #include "scene/components/image_canvas.hpp"
 #include "scene/components/label.hpp"
 #include "scene/components/line_element.hpp"
@@ -85,10 +86,7 @@
 #endif
 #include <systems/rendering_system/rendering_system.hpp>
 
-#include <systems/imperium_scripting_system/imperium_scripting_system.hpp>
-
 #include <systems/cpp_scripting_system/cpp_script_instance.hpp>
-#include <systems/imperium_scripting_system/imperium_script_instance.hpp>
 
 namespace Omnific
 {
@@ -120,6 +118,7 @@ namespace Omnific
 			registry->add<Camera, Component>();
 			registry->add<CameraRelativeMovement, Component>();
 			registry->add<Collider, Component>();
+			registry->add<Haptic, Component>();
 			registry->add<JumpMovement, Component>();
 			registry->add<Light, Component>();
 			registry->add<PhysicsBody, Component>();
@@ -170,9 +169,6 @@ namespace Omnific
 #endif
 			if (configuration->enabled_systems.rendering_system)
 				registry->add<RenderingSystem, System>();
-
-			if (configuration->enabled_systems.imperium_scripting_system)
-				registry->add<ImperiumScriptingSystem, System>();
 
 			////////////////////////////////////////////
 		};

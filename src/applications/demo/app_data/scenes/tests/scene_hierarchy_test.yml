@@ -96,7 +96,7 @@ Entity:
 Entity:
   name: "DemoUtilityScripts"
   ScriptCollection:
-    CPP: ["EscapeToSelectionMenu", "ReloadActiveScene"]
+    CPP: ["EscapeToSelectionMenu", "ReloadActiveScene", "ToggleFullscreen"]
 Entity:
   name: "Camera"
   transform:

@@ -33,4 +33,4 @@ Scene:
 Entity:
   name: "DemoUtilityScripts"
   ScriptCollection:
-    CPP: ["EscapeToSelectionMenu", "ReloadActiveScene"]
+    CPP: ["EscapeToSelectionMenu", "ReloadActiveScene", "ToggleFullscreen"]

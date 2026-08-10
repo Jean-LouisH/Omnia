@@ -20,42 +20,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#pragma once
-
-#include "scene/scene.hpp"
-#include <foundations/singletons/scene_manager.hpp>
-#include <foundations/singletons/configuration.hpp>
-#include "foundations/aliases.hpp"
-#include "foundations/singletons/platform/platform.hpp"
-#include <string>
-
-#include <memory>
-#include <scene/components/component.hpp>
-#include <scene/scene.hpp>
-#include <foundations/singletons/scene_manager.hpp>
-#include <foundations/aliases.hpp>
+#include "haptic.hpp"
 #include <foundations/singletons/event_bus.hpp>
-#include <engine_api.hpp>
 
-namespace Omnific
+void Omnific::Haptic::deserialize(YAML::Node yaml_node)
 {
-	class ImperiumEntityContext
+	for (YAML::const_iterator it3 = yaml_node.begin(); it3 != yaml_node.end(); ++it3)
 	{
-	public:
-		static void bind_entity(EntityID entity_id);
-		static void bind_time_delta(float time_delta);
-		static bool has_component(std::string type);
-		static std::shared_ptr<Entity> get_entity();
-		static std::shared_ptr<Transform> get_transform();
-		static std::shared_ptr<Scene> get_scene();
-		static std::shared_ptr<Component> get_component(std::string type);
-		static float get_time_delta();
+		if (it3->first.as<std::string>() == "player_id")
+		{
+			this->player_id = it3->second.as<int>();
+		}
+		else if (it3->first.as<std::string>() == "duration")
+		{
+			this->duration = it3->second.as<int>();
+		}
+		else if (it3->first.as<std::string>() == "strength")
+		{
+			this->strength = it3->second.as<float>();
+		}
+	}
+}
 
-		static ImperiumEntityContext* get_instance();
-	private:
-		static ImperiumEntityContext* instance;
+void Omnific::Haptic::rumble(uint16_t duration, float strength, PlayerID player_id)
+{
+	this->duration = duration;
+	this->strength = strength;
+	this->player_id = player_id;
 
-		EntityID bound_entity_id = 0;
-		float time_delta = 0.0;
-	};
+	EventBus::publish_event(OMNIFIC_EVENT_HAPTIC_SIGNAL, {}, {
+		{"duration", (double)duration},
+		{"strength", (double)strength},
+		{"player_id", (double)player_id}
+	});
 }

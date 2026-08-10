@@ -1358,7 +1358,7 @@ void Omnific::Scene::update_debug_statistics()
 		}
 	}
 
-	if (inputs.is_on_release("f3"))
+	if (inputs.is_on_release("f12"))
 	{
 		if (debug_label->get_alpha_in_percentage() < 0.5)
 		{

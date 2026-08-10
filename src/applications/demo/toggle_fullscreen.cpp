@@ -20,4 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "imperium_script_instance.hpp"
+#include "toggle_fullscreen.hpp"
+
+void OmnificDemo::ToggleFullscreen::on_input()
+{
+    Omnific::Inputs& inputs = Omnific::Platform::get_inputs();
+
+    if (inputs.is_on_release("f11"))
+    {
+        Omnific::Platform::get_window().toggle_windowed_fullscreen();
+    }
+}

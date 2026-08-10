@@ -11,7 +11,13 @@ Entity:
 Entity:
   name: "DemoUtilityScripts"
   ScriptCollection:
-    CPP: ["EscapeToSelectionMenu", "ReloadActiveScene"]
+    CPP: ["EscapeToSelectionMenu", "ReloadActiveScene", "ToggleFullscreen"]
+  Label:
+    text: "[ESC] - Menu, [F5] - Reload Scene, [F11] - Toggle Fullscreen, [F12] - Developer\n"
+    font: ["fonts/Lato-Regular.ttf", 13]
+    text_colour: "#FFFFFFFF"
+    pivot: "top_left"
+    anchor_pivot: "top_left"
 Entity:
   name: "Camera"
   Camera: "default"

@@ -43,14 +43,25 @@ void OmnificDemo::SelectionMenu::on_entity_start()
         project_names_list.push_back(pair.first);
     }
 
-    for (size_t i = 0; i < project_selection_letters.size(); i++)
+    for (int i = 0; i < project_names_list.size(); ++i)
     {
-        project_print_string += project_selection_letters[i] + ": " + project_names_list[i] + "\n";
+        std::string project_name = project_names_list[i];
+        std::shared_ptr<Omnific::Entity> project_button_entity = std::make_shared<Omnific::Entity>(project_name + " Button");
+        std::shared_ptr<Omnific::Button> project_button = std::make_shared<Omnific::Button>();
+        project_button->label->set_text(project_selection_letters[i] + ": " + project_name);
+        project_button->update_image();
+        project_button->scene_hyperlink = this->project_paths[i].second;
+        std::shared_ptr<Omnific::Scene> scene = Omnific::CPPEntityContext::get_scene();
+        project_button->anchor_pivot = Omnific::GUIElement::PivotPoint::TOP_LEFT;
+        project_button->pivot = Omnific::GUIElement::PivotPoint::TOP_LEFT;
+        project_button->margin = glm::vec2(0.0f, -60.0f + -(i * (project_button->get_dimensions().y + 1.0f)));
+        scene->add_entity(project_button_entity);
+        scene->add_component_to_last_entity(project_button);
     }
 
     std::shared_ptr<Omnific::Label> label = Omnific::CPPEntityContext::get_component_by_type<Omnific::Label>();
     label->set_text(
-        "Select one of the following by pressing the corresponding letter key\n\n" + project_print_string);
+        "Select one of these demos by typing the letter in front of it.\n\n");
 
 }
 

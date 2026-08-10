@@ -180,14 +180,22 @@ void Omnific::Engine::run_frame()
 		{
 #ifdef _WEB_PLATFORM
 			std::shared_ptr<Scene> scene = std::make_shared<Scene>();
+			scene->add_empty_entity("Project Name");
+			std::shared_ptr<Label> label = std::make_shared<Label>();
+			label->anchor_pivot = GUIElement::PivotPoint::CENTRE;
+			label->pivot = GUIElement::PivotPoint::CENTRE;
+			label->set_text(Configuration::get_instance()->metadata.title);
+			label->update_image();
+			scene->add_component_to_last_entity(label);
 			scene->add_empty_entity("Web Confirmation Button");
 			std::shared_ptr<Button> button = std::make_shared<Button>();
-			button->anchor_pivot = GUIElement::PivotPoint::CENTRE;
-			button->pivot = GUIElement::PivotPoint::CENTRE;
+			button->anchor_pivot = GUIElement::PivotPoint::BOTTOM_CENTRE;
+			button->pivot = GUIElement::PivotPoint::BOTTOM_CENTRE;
+			button->margin = glm::vec2(0.0f, 50.0f);
 			button->label->set_text("START");
+			button->update_image();
 			button->scene_hyperlink = entry_scene_filepath;
 			Platform::get_logger().write("Scene hyperlink: " + entry_scene_filepath + " added to Button.");
-			button->update_image();
 			scene->add_component_to_last_entity(button);
 			SceneManager::load_scene(scene);
 #else
