@@ -32,6 +32,7 @@
 #include <memory>
 #include <scene/components/component.hpp>
 #include <foundations/singletons/event_bus.hpp>
+#include <foundations/singletons/random_number_generator.hpp>
 #include <engine_api.hpp>
 
 namespace Omnific

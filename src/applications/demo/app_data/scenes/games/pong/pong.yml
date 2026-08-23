@@ -29,12 +29,10 @@ Entity:
     translation: [0, 0, 30]
   Camera: "default"
   AudioListener: "default"
-  # ScriptCollection:
-  #   Python: ["scenes/games/pong/camera_shake.py"]
 Entity:
   name: "Game Mechanics"
   ScriptCollection:
-    Python: ["scenes/games/pong/pong.py"]
+    CPP: ["Pong"]
   AudioSource:
     audio: ["audio/nature.ogg"]
     play_infinitely: true
@@ -51,8 +49,6 @@ Entity:
     mesh: "Mesh::CUBE"
     material:
       albedo: "Image::#FF0000"
-  ScriptCollection:
-    Python: ["scenes/games/pong/player_control.py"]
   Collider: default
 Entity:
   name: "ScoreCount1"
@@ -64,8 +60,6 @@ Entity:
     pivot: "bottom_centre"
     follow_target_entity_name: "Paddle1"
     follow_offset: [0.0, 50.0]
-  ScriptCollection:
-    Python: ["scenes/games/pong/player_score.py"]
 Entity:
   name: "Paddle2"
   parent: "GlobalShaderEntity"
@@ -79,8 +73,6 @@ Entity:
     mesh: "Mesh::CUBE"
     material:
       albedo: "Image::#0000FF"
-  ScriptCollection:
-    Python: ["scenes/games/pong/ai_control.py"]
   Collider: default
 Entity:
   name: "ScoreCount2"
@@ -92,8 +84,6 @@ Entity:
     pivot: "bottom_centre"
     follow_target_entity_name: "Paddle2"
     follow_offset: [0.0, 50.0]
-  ScriptCollection:
-    Python: ["scenes/games/pong/ai_score.py"]
 Entity:
   name: "Ball"
   parent: "GlobalShaderEntity"
@@ -110,8 +100,6 @@ Entity:
     is_trigger_only: true
   AudioSource:
     audio: ["audio/click.ogg"]
-  ScriptCollection:
-    Python: ["scenes/games/pong/ball_collision_sounds.py"]
 Entity:
   name: "UpperBoundary"
   parent: "GlobalShaderEntity"
