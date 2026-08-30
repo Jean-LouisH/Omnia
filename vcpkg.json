@@ -1,13 +1,14 @@
 {
+  "name": "omnific",
+  "version-string": "1.0.0",
+  "builtin-baseline": "d2452281016c6d77b6ef199d599d9929eafe4807",
   "dependencies": [
-    {
-      "name": "sdl3",
-      "platform": "!emscripten"
-    },
-    {
-      "name": "volk",
-      "platform": "!emscripten"
-    },
+    "sdl3",
+    "sdl3-ttf",
+    "glm",
+    "tinygltf",
+    "yaml-cpp",
+    "doctest",
     {
       "name": "pybind11",
       "platform": "!mingw & !emscripten"
@@ -15,12 +16,6 @@
     {
       "name": "python3",
       "platform": "!mingw & !emscripten"
-    },
-    "sdl3-ttf",
-    "glm",
-    "tinygltf",
-    "yaml-cpp",
-    "imgui",
-    "doctest"
+    }
   ]
 }
