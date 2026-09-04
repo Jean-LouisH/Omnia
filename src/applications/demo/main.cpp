@@ -35,6 +35,7 @@
 #include "toggle_fullscreen.hpp"
 
 #include "pong.hpp"
+#include "audio_player.hpp"
 
 /**Regular entry point*/
 
@@ -61,6 +62,7 @@ int main(int argc, char* argv[])
 	Omnific::ClassRegistry::add<OmnificDemo::ToggleFullscreen, Omnific::CPPScriptInstance>();
 
 	Omnific::ClassRegistry::add<OmnificDemo::Pong, Omnific::CPPScriptInstance>();
+	Omnific::ClassRegistry::add<OmnificDemo::AudioPlayer, Omnific::CPPScriptInstance>();
 	omnific_engine->run();
 	return 0;
 }

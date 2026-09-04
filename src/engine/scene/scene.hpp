@@ -134,6 +134,12 @@ namespace Omnific
 		}
 
 		template <class T>
+		std::shared_ptr<T> get_component_by_type_from_entity_by_name(std::string entity_name)
+		{
+			return std::dynamic_pointer_cast<T>(this->get_component_from_entity_by_name(T::TYPE_STRING, entity_name));
+		}
+
+		template <class T>
 		std::unordered_map<ComponentID, std::shared_ptr<T>> get_components_by_type_in_dictionary()
 		{
 			std::unordered_map<ComponentID, std::shared_ptr<T>> component_dictionary;

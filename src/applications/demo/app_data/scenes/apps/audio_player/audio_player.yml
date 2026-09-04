@@ -14,7 +14,7 @@ Entity:
     play_infinitely: false
   AudioListener: "default"
   ScriptCollection:
-    Python: ["scenes/apps/audio_player/audio_player.py"]
+    CPP: ["AudioPlayer"]
 Entity:
   name: "Start Message"
   Label: 
